@@ -16,19 +16,19 @@ import SwiftUI
 /// **Beispiel mit Parameter**
 /// ```swift
 /// Text("Hallo Welt")
-///     .modifier(FitFontModifier(lineLimit: 1, fontSize: .greatestFiniteMagnitude, fontWeight: .regular, fontDesign: .default, minimumScaleFactor: 0.01, percentage: 1))
+///     .modifier(FitFont(lineLimit: 1, fontSize: .greatestFiniteMagnitude, fontWeight: .regular, fontDesign: .default, minimumScaleFactor: 0.01, percentage: 1))
 /// ```
 ///
 /// **Beispiel ohne Parameter**
 /// ```swift
 /// Text("Hallo Welt")
-///     .modifier(FitFontModifier())
+///     .modifier(FitFont())
 /// ```
 ///
 /// - Requires: `SwiftUI`
 /// - Author: Dustin Weise
 /// - Copyright: © 2021 by Dustin Weise
-public struct FitFontModifier: ViewModifier {
+public struct FitFont: ViewModifier {
     public var lineLimit: Int?
     public var fontSize: CGFloat?
     public var fontWeight: Font.Weight
@@ -79,7 +79,7 @@ public extension View {
     /// - Requires: `SwiftUI`
     /// - Author: Dustin Weise
     /// - Copyright: © 2021 by Dustin Weise
-    func fitFont(lineLimit: Int? = nil, fontSize: CGFloat? = nil, fontWeight: Font.Weight = .regular, fontDesign: Font.Design = .default, minimumScaleFactor: CGFloat = 0.01, percentage: CGFloat = 1) -> ModifiedContent<Self, FitFontModifier> {
-        return modifier(FitFontModifier(lineLimit: lineLimit, fontSize: fontSize, fontWeight: fontWeight, fontDesign: fontDesign, minimumScaleFactor: minimumScaleFactor, percentage: percentage))
+    func fitFont(lineLimit: Int? = nil, fontSize: CGFloat? = nil, fontWeight: Font.Weight = .regular, fontDesign: Font.Design = .default, minimumScaleFactor: CGFloat = 0.01, percentage: CGFloat = 1) -> ModifiedContent<Self, FitFont> {
+        return modifier(FitFont(lineLimit: lineLimit, fontSize: fontSize, fontWeight: fontWeight, fontDesign: fontDesign, minimumScaleFactor: minimumScaleFactor, percentage: percentage))
     }
 }
